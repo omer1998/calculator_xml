@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <!--    <View-->
+    <!--        android:layout_width="32dp"-->
+    <!--        android:layout_height="4dp"-->
+    <!--        android:background="@drawable/handle"-->
+    <!--        app:circularflow_radiusInDP="8dp"-->
+    <!--        android:layout_marginBottom="4dp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/keyboard"/>-->
+    <ScrollView
+        android:id="@+id/keyboardScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/resultText"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="32dp"
+        >
+
+        <Button
+            android:id="@+id/acButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="AC"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/backButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_arrow"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/moduloButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/acButton"
+            app:layout_constraintTop_toTopOf="@+id/acButton"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/divideButton"
+            style="@style/MyButtonTheme.OperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="/"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/moduloButton"
+            app:layout_constraintTop_toTopOf="@+id/moduloButton"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/moduloButton"
+            style="@style/MyButtonTheme.OperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:text="%"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/divideButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/backButton"
+            app:layout_constraintTop_toTopOf="@+id/backButton"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/multiplyButton"
+            style="@style/MyButtonTheme.OperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="x"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/divideButton"
+            app:layout_constraintStart_toStartOf="@+id/divideButton"
+            app:layout_constraintTop_toTopOf="@+id/nineButton" />
+
+        <Button
+            android:id="@+id/sevenButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:onClick="onNumberClick"
+            android:text="7"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/acButton"
+            app:layout_constraintStart_toStartOf="@+id/acButton"
+            app:layout_constraintTop_toBottomOf="@+id/acButton" />
+
+        <Button
+            android:id="@+id/eightButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onNumberClick"
+            android:text="8"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/backButton"
+            app:layout_constraintStart_toStartOf="@+id/backButton"
+            app:layout_constraintTop_toTopOf="@+id/sevenButton" />
+
+        <Button
+            android:id="@+id/fiveButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:onClick="onNumberClick"
+            android:text="5"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/sevenButton"
+            app:layout_constraintStart_toStartOf="@+id/sevenButton"
+            app:layout_constraintTop_toBottomOf="@+id/sevenButton" />
+
+        <Button
+            android:id="@+id/fourButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onNumberClick"
+            android:text="4"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/eightButton"
+            app:layout_constraintStart_toStartOf="@+id/eightButton"
+            app:layout_constraintTop_toTopOf="@+id/fiveButton" />
+
+        <Button
+            android:id="@+id/nineButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onNumberClick"
+            android:text="9"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/moduloButton"
+            app:layout_constraintStart_toStartOf="@+id/moduloButton"
+            app:layout_constraintTop_toTopOf="@+id/eightButton" />
+
+
+        <Button
+            android:id="@+id/sixButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onNumberClick"
+            android:text="6"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/nineButton"
+            app:layout_constraintStart_toStartOf="@+id/nineButton"
+            app:layout_constraintTop_toTopOf="@+id/fourButton" />
+
+        <Button
+            android:id="@+id/plusButton"
+            style="@style/MyButtonTheme.OperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="+"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/multiplyButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/multiplyButton"
+            app:layout_constraintTop_toTopOf="@+id/sixButton" />
+
+        <Button
+            android:id="@+id/oneButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:onClick="onNumberClick"
+            android:text="1"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/fiveButton"
+            app:layout_constraintStart_toStartOf="@+id/fiveButton"
+            app:layout_constraintTop_toBottomOf="@+id/fiveButton" />
+
+        <Button
+            android:id="@+id/twoButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onNumberClick"
+            android:text="2"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/fourButton"
+            app:layout_constraintStart_toStartOf="@+id/fourButton"
+            app:layout_constraintTop_toTopOf="@+id/oneButton" />
+
+        <Button
+            android:id="@+id/threeButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onNumberClick"
+            android:text="3"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/sixButton"
+            app:layout_constraintStart_toStartOf="@+id/sixButton"
+            app:layout_constraintTop_toTopOf="@+id/twoButton" />
+
+        <Button
+            android:id="@+id/subtractButton"
+            style="@style/MyButtonTheme.OperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="-"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/plusButton"
+            app:layout_constraintTop_toTopOf="@+id/threeButton" />
+
+        <ImageButton
+            android:id="@+id/plusMinusButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_plus_minus"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/oneButton"
+            app:layout_constraintStart_toStartOf="@+id/oneButton"
+            app:layout_constraintTop_toBottomOf="@+id/oneButton" />
+
+        <Button
+            android:id="@+id/zeroButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onNumberClick"
+            android:text="0"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/twoButton"
+            app:layout_constraintStart_toStartOf="@+id/twoButton"
+            app:layout_constraintTop_toTopOf="@+id/plusMinusButton" />
+
+        <Button
+            android:id="@+id/dotButton"
+            style="@style/MyButtonTheme.NumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onNumberClick"
+            android:text="."
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/threeButton"
+            app:layout_constraintStart_toStartOf="@+id/threeButton"
+            app:layout_constraintTop_toTopOf="@+id/zeroButton" />
+
+        <Button
+            android:id="@+id/equalButton"
+            style="@style/MyButtonTheme.OperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="="
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/subtractButton"
+            app:layout_constraintTop_toTopOf="@+id/dotButton" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/previousEquation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/doppio_one"
+        android:gravity="end"
+        android:text=""
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/resultText"
+        app:layout_constraintEnd_toStartOf="@id/keyboardScroll" />
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/doppio_one"
+        android:gravity="end"
+        android:text="0"
+        android:textColor="@color/brown"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/keyboardScroll"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
