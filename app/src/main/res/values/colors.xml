@@ -7,4 +7,5 @@
     <color name="background">#F8F8F8</color>
     <color name="number_background">#F8F8F8</color>
     <color name="gray">#55423866</color>
+    <color name="gray_handle">#DFDDDC</color>
 </resources>
